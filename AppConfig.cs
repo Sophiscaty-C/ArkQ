@@ -60,9 +60,9 @@ namespace ArkQ
             catch (XmlException e) { }
         }
 
-        /*从配置文件中获取小球的坐标
-            *return 如果存在配置文件，即返回配置文件中的小球的x,y坐标，
-            *否则创建配置文件，并返回小球的默认x,y坐标
+        /*从配置文件中获取坐标
+            *return 如果存在配置文件，即返回配置文件中的x,y坐标，
+            *否则创建配置文件，并返回默认x,y坐标
             */
         public Point getMiniBallInitLocation()
         {
@@ -79,7 +79,7 @@ namespace ArkQ
             return topMost;
         }
 
-        /*保存小球的位置信息*/
+        /*保存位置信息*/
         public void saveInfos(int x, int y, int currentOpacity, bool isTopMost)
         {
             try

@@ -16,7 +16,7 @@ namespace ArkQ
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pallas());
+            Application.Run(new Control());
         }
     }
 }

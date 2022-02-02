@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
+    <Compile Include="Control.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control.Designer.cs">
+      <DependentUpon>Control.cs</DependentUpon>
+    </Compile>
     <Compile Include="Courier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Control.resx">
+      <DependentUpon>Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Courier.resx">
+      <DependentUpon>Courier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pallas.resx">
       <DependentUpon>Pallas.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +122,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Resources\Pallas\Original\Sleep.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\logo_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

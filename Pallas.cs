@@ -9,27 +9,27 @@ namespace ArkQ
 {
     public partial class Pallas : Form
     {
-        private AppConfig config = new AppConfig();
         private ToolStripMenuItem OpacityItem = null;
         public Random rand = new Random();
-        public Courier courier = new Courier();
 
         private Point mouseOffset;
         private bool isMouseDown = false;
         public bool isMouseEnter = false;
         public string pic_path;//对应图片路径
 
-        public string BASIC_PATH = "D:\\Git\\repository\\ArkQ\\Properties\\Resources\\";
-        //需要解决成相对路径，但我还不知道怎么解决【爬
+        public string BASIC_PATH = System.IO.Directory.GetCurrentDirectory()+ "\\..\\..\\Properties\\Resources\\";
         public string character = "Pallas"; //角色
         public string act = ""; //动作
         public string skin = "original"; //皮肤
         public int[] interact_time = { 6000, 3000 };
         public int special_time = 20000;
-        private int direction = 1;  //d = 1向右,d = -1向左
+        enum direction { Left, Right, Up, Down};
         private int screen_width;
         private int screen_height;
-        
+        private int r1;//控制左右
+        private int r2;//控制上下
+        private int v1;//控制左右速度(1~2pixel)
+        private int v2;//控制上下速度(1~2pixel)
 
         public Pallas()
         {
@@ -39,12 +39,17 @@ namespace ArkQ
             screen_height = ScreenArea.Height;
             OpacityItem = Opacity100;
             setOpacity(Opacity100, 100);
+            r1 = rand.Next() % 2;
+            r2 = rand.Next() % 2 + 2;
+            v1 = rand.Next() % 3+1;
+            v2 = rand.Next() % 3+1;
             change_act("Rela");
             timer2.Interval = 5000;          //固定5s之后开始改变动作
             timer4.Interval = 100;          //步行速度，每0.1s移动一步
             timer2.Start();
         }
 
+        //动作变化
         #region  动作变化
         private void change_act(string new_act)
         {
@@ -82,14 +87,13 @@ namespace ArkQ
             }
             act = new_act;
             
-            if(direction > 0)
+            if(r1 == (int)direction.Right)
                 pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-            else
+            else if(r1 == (int)direction.Left)
                 pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
             this.pictureBox1.Image = Image.FromFile(pic_path);
         }
         #endregion
-
 
         //显示方式
         #region 显示方式
@@ -159,16 +163,6 @@ namespace ArkQ
         }
         #endregion
 
-        //退出
-        #region 退出
-        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            config.saveInfos(this.Location.X, this.Location.Y, (int)(this.Opacity * 100), this.TopMost);
-            MyNotifyIcon.Dispose();
-            Application.Exit();
-        }
-        #endregion
-
         //鼠标拖动
         #region 鼠标拖动
         private void Original_MouseUp(object sender, MouseEventArgs e)
@@ -212,7 +206,6 @@ namespace ArkQ
                 }
             }
         }
-        
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -244,7 +237,7 @@ namespace ArkQ
                     case 4:
                         if (skin != "original")
                             change_act("Special");
-                        else change_act("Rela"); 
+                        else change_act("Move"); //多走走！！！不准养老！！！
                         break;
                 }
             }
@@ -259,45 +252,88 @@ namespace ArkQ
 
         private void timer4_Tick(object sender, EventArgs e)
         {
-            //此处添加Move移动函数
-            if (this.Location.X + 1 * direction > screen_width - 200 || this.Location.X + 1 * direction < 200)
+            if(r1==(int)direction.Left && r2== (int)direction.Up)//左上
             {
-                Image new_image = Image.FromFile(pic_path);
-                new_image.RotateFlip(RotateFlipType.Rotate180FlipY);
-                direction = -1 * direction;
-                if (direction > 0)
+                if(this.Location.X - v1 < 200 || this.Location.Y - v2 < 200)//换方向
+                {
                     pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
+                    this.pictureBox1.Image = Image.FromFile(pic_path);
+                    r1 = (int)direction.Right;
+                    r2 = (int)direction.Down;
+                    v1 = rand.Next() % 3 + 1;
+                    v2 = rand.Next() % 3 + 1;
+                    this.Location = new Point(this.Location.X + v1, this.Location.Y + v2);
+                }
+                else//走路
+                {
+                    this.Location = new Point(this.Location.X - v1, this.Location.Y-v2);
+                }
+            }
+            else if(r1 == (int)direction.Left && r2 == (int)direction.Down)//左下
+            {
+                if (this.Location.X - v1 < 200 || this.Location.Y + v2 > screen_height-200)
+                {
+                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
+                    this.pictureBox1.Image = Image.FromFile(pic_path);
+                    r1 = (int)direction.Right;
+                    r2 = (int)direction.Up;
+                    v1 = rand.Next() % 3 + 1;
+                    v2 = rand.Next() % 3 + 1;
+                    this.Location = new Point(this.Location.X + v1, this.Location.Y - v2);
+                }
                 else
+                {
+                    this.Location = new Point(this.Location.X - v1, this.Location.Y + v2);
+                }
+            }
+            else if(r1 == (int)direction.Right && r2 == (int)direction.Up)//右上
+            {
+                if (this.Location.X + v1 > screen_width-200 || this.Location.Y - v2 < 200)
+                {
                     pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
-                this.pictureBox1.Image = Image.FromFile(pic_path);
-            }  
-            else
-                this.Location = new Point(this.Location.X + 1 * direction, this.Location.Y);
+                    this.pictureBox1.Image = Image.FromFile(pic_path);
+                    r1 = (int)direction.Left;
+                    r2 = (int)direction.Down;
+                    v1 = rand.Next() % 3 + 1;
+                    v2 = rand.Next() % 3 + 1;
+                    this.Location = new Point(this.Location.X - v1, this.Location.Y + v2);
+                }
+                else
+                {
+                    this.Location = new Point(this.Location.X + v1, this.Location.Y - v2);
+                }
+            }
+            else if(r1 == (int)direction.Right && r2 == (int)direction.Down)//右下
+            {
+                if (this.Location.X + v1 > screen_width - 200 || this.Location.Y + v2 > screen_height - 200)
+                {
+                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
+                    this.pictureBox1.Image = Image.FromFile(pic_path);
+                    r1 = (int)direction.Left;
+                    r2 = (int)direction.Up;
+                    v1 = rand.Next() % 3 + 1;
+                    v2 = rand.Next() % 3 + 1;
+                    this.Location = new Point(this.Location.X - v1, this.Location.Y - v2);
+                }
+                else
+                {
+                    this.Location = new Point(this.Location.X + v1, this.Location.Y + v2);
+                }
+            }
         }
         #endregion
 
-        //换人换衣服
-        #region 换人换衣服
-        private void 帕拉斯ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            帕拉斯.Image = new Bitmap(Properties.Resources.dot);
-            讯使.Image = null;
-            character = "Pallas";
-        }
-
-        private void 讯使ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            帕拉斯.Image = null;
-            讯使.Image = new Bitmap(Properties.Resources.dot);
-            courier.Show();
-        }
-
+        //换衣服
+        #region 换衣服
         private void originalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Original.Image = new Bitmap(Properties.Resources.dot);
             传承.Image = null;
             skin = "original";
-            pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
+            if (r1 == (int)direction.Right)
+                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
+            else if (r1 == (int)direction.Left)
+                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
             this.pictureBox1.Image = Image.FromFile(pic_path);
         }
 
@@ -306,23 +342,26 @@ namespace ArkQ
             Original.Image = null;
             传承.Image = new Bitmap(Properties.Resources.dot);
             skin = "epoque";
-            pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
+            if (r1 == (int)direction.Right)
+                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
+            else if (r1 == (int)direction.Left)
+                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
             this.pictureBox1.Image = Image.FromFile(pic_path);
         }
         #endregion
 
         //罚站吗？
         #region 罚站吗？
-        private void 罚站ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 不要罚站了ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            change_act("Sit");
+            timer2.Start();
+        }
+
+        private void 罚站ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             change_act("Rela");
             timer2.Stop();
-        }
-
-        private void 不要罚站了ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            change_act("Move");
-            timer2.Start();
         }
         #endregion
     }
