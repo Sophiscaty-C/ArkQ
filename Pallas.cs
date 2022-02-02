@@ -19,24 +19,77 @@ namespace ArkQ
         public bool isMouseEnter = false;
         public string pic_path;//对应图片路径
 
-        public string BASIC_PATH = @"D:\Project\test\ArkQ\Properties\Resources\";
+        public string BASIC_PATH = "D:\\Git\\repository\\ArkQ\\Properties\\Resources\\";
         //需要解决成相对路径，但我还不知道怎么解决【爬
         public string character = "Pallas"; //角色
-        public string act = "Rela"; //动作
+        public string act = ""; //动作
         public string skin = "original"; //皮肤
-        public int[] interact_time = { 7000, 3000 };
+        public int[] interact_time = { 6000, 3000 };
         public int special_time = 20000;
+        private int direction = 1;  //d = 1向右,d = -1向左
+        private int screen_width;
+        private int screen_height;
         
+
         public Pallas()
         {
             InitializeComponent();
+            Rectangle ScreenArea = System.Windows.Forms.Screen.GetWorkingArea(this);
+            screen_width = ScreenArea.Width;
+            screen_height = ScreenArea.Height;
             OpacityItem = Opacity100;
             setOpacity(Opacity100, 100);
-            pic_path = BASIC_PATH + character + "\\"+skin+"\\"+ act + ".gif";
-            this.pictureBox1.Image = Image.FromFile(pic_path);
-            timer2.Interval = 5000;//固定5s之后开始Move
+            change_act("Rela");
+            timer2.Interval = 5000;          //固定5s之后开始改变动作
+            timer4.Interval = 100;          //步行速度，每0.1s移动一步
             timer2.Start();
         }
+
+        #region  动作变化
+        private void change_act(string new_act)
+        {
+            if (act == new_act)              //如果动作没有变化
+                return;
+            else if (act == "Move")          //上一动作是 移动
+            {
+                timer2.Start();
+                timer4.Stop();
+            }
+            if (new_act == "Move")          //下一动作是 移动
+            {
+                timer3.Interval = rand.Next() % 6 * 1000 + 15000; //15~20秒Move                 
+                timer2.Stop();
+                timer3.Start();
+                timer4.Start();
+            }
+            else if (new_act == "Interact") //下一动作是 戳一戳
+            {
+                if (skin == "original")
+                    timer1.Interval = interact_time[0];
+                else if (skin == "epoque")
+                    timer1.Interval = interact_time[1];
+                timer1.Start();
+            }
+            else if(new_act == "Special")   //下一动作是 特殊动作
+            {
+                timer3.Interval = special_time;
+                timer2.Stop();
+                timer3.Start();
+            }
+            else
+            {
+                timer2.Interval = rand.Next() % 6 * 1000 + 5000;  //5~10秒后变成下一个动作
+            }
+            act = new_act;
+            
+            if(direction > 0)
+                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
+            else
+                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
+            this.pictureBox1.Image = Image.FromFile(pic_path);
+        }
+        #endregion
+
 
         //显示方式
         #region 显示方式
@@ -155,23 +208,15 @@ namespace ArkQ
                 this.Cursor = Cursors.SizeAll;
                 if (act != "Interact")
                 {
-                    act = "Interact";
-                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-                    this.pictureBox1.Image = Image.FromFile(pic_path);
-                    if(skin== "original")
-                        timer1.Interval = interact_time[0];
-                    else if(skin=="epoque")
-                        timer1.Interval = interact_time[1];
-                    timer1.Start();
+                    change_act("Interact");
                 }
             }
         }
+        
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            act = "Rela";
-            pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-            this.pictureBox1.Image = Image.FromFile(pic_path);
+            change_act("Rela");
             timer1.Stop();
         }
         #endregion
@@ -180,68 +225,54 @@ namespace ArkQ
         #region 动作切换
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if(act != "Interact")
+            if(act != "Interact" && act != "Special")  //避免打断戳一戳和特殊动作
             {
-                switch (rand.Next() % 5)
+                switch (rand.Next() % 5) //五种动作转换
                 {
                     case 0:
-                        act = "Move";
+                        change_act("Move");
                         break;
                     case 1:
-                        act = "Sit";
+                        change_act("Sit");
                         break;
                     case 2:
-                        act = "Sleep";
+                        change_act("Sleep");
                         break;
                     case 3:
-                        act = "Rela";
+                        change_act("Rela");
                         break;
                     case 4:
                         if (skin != "original")
-                            act = "Special";
+                            change_act("Special");
+                        else change_act("Rela"); 
                         break;
-                }
-                if(act!="Special" && act!="Move")
-                {
-                    timer2.Interval = rand.Next() % 6 * 1000 + 5000;  //5~10秒一个动作
-                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-                    timer2.Stop();
-                    this.pictureBox1.Image = Image.FromFile(pic_path);
-                    timer2.Start();
-                }
-                else if(act=="Special")
-                {
-                    timer2.Stop();
-                    timer3.Interval = special_time;
-                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-                    this.pictureBox1.Image = Image.FromFile(pic_path);      
-                    timer3.Start();
-                }
-                else if (act == "Move")
-                {
-                    timer2.Stop();
-                    timer3.Interval = rand.Next() % 6 * 1000 + 15000; //15~20秒Move
-                    timer4.Interval = 100;//每0.1s移动一步                    
-                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-                    this.pictureBox1.Image = Image.FromFile(pic_path);
-                    timer3.Start();
-                    timer4.Start();
                 }
             }
         }
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            act = "Rela";
-            pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-            this.pictureBox1.Image = Image.FromFile(pic_path);
+            change_act("Rela");
             timer3.Stop();
-            timer4.Stop();
             timer2.Start();
         }
+
         private void timer4_Tick(object sender, EventArgs e)
         {
             //此处添加Move移动函数
+            if (this.Location.X + 1 * direction > screen_width - 200 || this.Location.X + 1 * direction < 200)
+            {
+                Image new_image = Image.FromFile(pic_path);
+                new_image.RotateFlip(RotateFlipType.Rotate180FlipY);
+                direction = -1 * direction;
+                if (direction > 0)
+                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
+                else
+                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
+                this.pictureBox1.Image = Image.FromFile(pic_path);
+            }  
+            else
+                this.Location = new Point(this.Location.X + 1 * direction, this.Location.Y);
         }
         #endregion
 
@@ -284,17 +315,13 @@ namespace ArkQ
         #region 罚站吗？
         private void 罚站ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            act = "Rela";
-            pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-            this.pictureBox1.Image = Image.FromFile(pic_path);
+            change_act("Rela");
             timer2.Stop();
         }
 
         private void 不要罚站了ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            act = "Move";
-            pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-            this.pictureBox1.Image = Image.FromFile(pic_path);
+            change_act("Move");
             timer2.Start();
         }
         #endregion
