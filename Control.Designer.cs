@@ -142,6 +142,11 @@ namespace ArkQ
             this.Text = "Control";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.White;
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Control_MouseDown);
+            this.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Control_MouseUp);
             this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);

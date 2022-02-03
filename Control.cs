@@ -13,6 +13,9 @@ namespace ArkQ
     public partial class Control : Form
     {
         private AppConfig config = new AppConfig();
+        private Point mouseOffset;
+        private bool isMouseDown = false;
+        public bool isMouseEnter = false;
         public Control()
         {
             InitializeComponent();
@@ -56,6 +59,41 @@ namespace ArkQ
             config.saveInfos(this.Location.X, this.Location.Y, (int)(this.Opacity * 100), this.TopMost);
             notifyIcon1.Dispose();
             Application.Exit();
+        }
+
+        private void Control_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isMouseDown = true;
+                mouseOffset = new Point(MousePosition.X - this.Location.X, MousePosition.Y - this.Location.Y);
+                this.Cursor = Cursors.SizeAll;
+            }
+        }
+
+        private void Control_MouseEnter(object sender, EventArgs e)
+        {
+            isMouseEnter = true;
+        }
+
+        private void Control_MouseLeave(object sender, EventArgs e)
+        {
+            isMouseEnter = false;
+        }
+
+        private void Control_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMouseDown && isMouseEnter)
+            {
+                int dx = MousePosition.X - mouseOffset.X, dy = MousePosition.Y - mouseOffset.Y;
+                this.Location = new Point(dx, dy);
+            }
+        }
+
+        private void Control_MouseUp(object sender, MouseEventArgs e)
+        {
+            isMouseDown = false;
+            this.Cursor = Cursors.Default;
         }
     }
 }

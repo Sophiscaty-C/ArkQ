@@ -30,6 +30,7 @@ namespace ArkQ
         private int r2;//控制上下
         private int v1;//控制左右速度(1~2pixel)
         private int v2;//控制上下速度(1~2pixel)
+        private int margin = 200;//Move边框宽度
 
         public Pallas()
         {
@@ -157,9 +158,10 @@ namespace ArkQ
             setOpacity(Opacity15, 15);
         }
 
-        private void 隐藏干员ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 下班ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setOpacity(Opacity0, 0);
+            //setOpacity(Opacity0, 0);
+            this.Dispose();
         }
         #endregion
 
@@ -226,10 +228,10 @@ namespace ArkQ
                         change_act("Move");
                         break;
                     case 1:
-                        change_act("Sit");
+                        change_act("Sit");//
                         break;
                     case 2:
-                        change_act("Sleep");
+                        change_act("Sleep");//
                         break;
                     case 3:
                         change_act("Rela");
@@ -254,32 +256,32 @@ namespace ArkQ
         {
             if(r1==(int)direction.Left && r2== (int)direction.Up)//左上
             {
-                if(this.Location.X - v1 < 200 || this.Location.Y - v2 < 200)//换方向
+                if(this.Location.X <= margin || this.Location.Y <= margin)//换方向
                 {
                     pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
                     this.pictureBox1.Image = Image.FromFile(pic_path);
+                    this.Location = new Point(this.Location.X + 3, this.Location.Y + 3);
                     r1 = (int)direction.Right;
                     r2 = (int)direction.Down;
                     v1 = rand.Next() % 3 + 1;
                     v2 = rand.Next() % 3 + 1;
-                    this.Location = new Point(this.Location.X + v1, this.Location.Y + v2);
                 }
                 else//走路
                 {
-                    this.Location = new Point(this.Location.X - v1, this.Location.Y-v2);
+                    this.Location = new Point(this.Location.X - v1, this.Location.Y - v2);
                 }
             }
             else if(r1 == (int)direction.Left && r2 == (int)direction.Down)//左下
             {
-                if (this.Location.X - v1 < 200 || this.Location.Y + v2 > screen_height-200)
+                if (this.Location.X <= margin || this.Location.Y >= screen_height - margin)
                 {
                     pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
                     this.pictureBox1.Image = Image.FromFile(pic_path);
+                    this.Location = new Point(this.Location.X + 3, this.Location.Y - 3);
                     r1 = (int)direction.Right;
                     r2 = (int)direction.Up;
                     v1 = rand.Next() % 3 + 1;
-                    v2 = rand.Next() % 3 + 1;
-                    this.Location = new Point(this.Location.X + v1, this.Location.Y - v2);
+                    v2 = rand.Next() % 3 + 1; 
                 }
                 else
                 {
@@ -288,15 +290,15 @@ namespace ArkQ
             }
             else if(r1 == (int)direction.Right && r2 == (int)direction.Up)//右上
             {
-                if (this.Location.X + v1 > screen_width-200 || this.Location.Y - v2 < 200)
+                if (this.Location.X >= screen_width - margin || this.Location.Y <= margin)
                 {
                     pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
                     this.pictureBox1.Image = Image.FromFile(pic_path);
+                    this.Location = new Point(this.Location.X - 3, this.Location.Y + 3);
                     r1 = (int)direction.Left;
                     r2 = (int)direction.Down;
                     v1 = rand.Next() % 3 + 1;
                     v2 = rand.Next() % 3 + 1;
-                    this.Location = new Point(this.Location.X - v1, this.Location.Y + v2);
                 }
                 else
                 {
@@ -305,15 +307,15 @@ namespace ArkQ
             }
             else if(r1 == (int)direction.Right && r2 == (int)direction.Down)//右下
             {
-                if (this.Location.X + v1 > screen_width - 200 || this.Location.Y + v2 > screen_height - 200)
+                if (this.Location.X >= screen_width - margin || this.Location.Y >= screen_height - margin)
                 {
                     pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
                     this.pictureBox1.Image = Image.FromFile(pic_path);
+                    this.Location = new Point(this.Location.X - 3, this.Location.Y - 3);
                     r1 = (int)direction.Left;
                     r2 = (int)direction.Up;
                     v1 = rand.Next() % 3 + 1;
                     v2 = rand.Next() % 3 + 1;
-                    this.Location = new Point(this.Location.X - v1, this.Location.Y - v2);
                 }
                 else
                 {

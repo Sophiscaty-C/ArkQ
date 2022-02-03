@@ -189,8 +189,8 @@ namespace ArkQ
             // 
             this.Opacity0.Name = "Opacity0";
             this.Opacity0.Size = new System.Drawing.Size(138, 24);
-            this.Opacity0.Text = "隐藏干员";
-            this.Opacity0.Click += new System.EventHandler(this.隐藏干员ToolStripMenuItem_Click);
+            this.Opacity0.Text = "下班";
+            this.Opacity0.Click += new System.EventHandler(this.下班ToolStripMenuItem_Click);
             // 
             // 罚站吗
             // 
