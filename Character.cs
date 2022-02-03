@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace ArkQ
 {
-    public partial class Pallas : Form
+    public partial class Character : Form
     {
         private ToolStripMenuItem OpacityItem = null;
         public Random rand = new Random();
@@ -18,11 +18,11 @@ namespace ArkQ
         public string pic_path;//对应图片路径
 
         public string BASIC_PATH = System.IO.Directory.GetCurrentDirectory()+ "\\..\\..\\Properties\\Resources\\";
-        public string character = "Pallas"; //角色
-        public string act = ""; //动作
-        public string skin = "original"; //皮肤
-        public int[] interact_time = { 6000, 3000 };
-        public int special_time = 20000;
+        public string character = "";   //角色
+        public string act = "";         //动作
+        public string skin = "";        //皮肤
+        public int interact_time;
+        public int special_time;
         enum direction { Left, Right, Up, Down};
         private int screen_width;
         private int screen_height;
@@ -32,12 +32,17 @@ namespace ArkQ
         private int v2;//控制上下速度(1~2pixel)
         private int margin = 200;//Move边框宽度
 
-        public Pallas()
+        public Character(string c_name,string c_skin,int c_interact_time,int c_special_time)
         {
             InitializeComponent();
             Rectangle ScreenArea = System.Windows.Forms.Screen.GetWorkingArea(this);
             screen_width = ScreenArea.Width;
             screen_height = ScreenArea.Height;
+            character = c_name;
+            skin = c_skin;
+            interact_time = c_interact_time;
+            special_time = c_special_time;
+
             OpacityItem = Opacity100;
             setOpacity(Opacity100, 100);
             r1 = rand.Next() % 2;
@@ -70,10 +75,7 @@ namespace ArkQ
             }
             else if (new_act == "Interact") //下一动作是 戳一戳
             {
-                if (skin == "original")
-                    timer1.Interval = interact_time[0];
-                else if (skin == "epoque")
-                    timer1.Interval = interact_time[1];
+                timer1.Interval = interact_time;
                 timer1.Start();
             }
             else if(new_act == "Special")   //下一动作是 特殊动作
@@ -228,10 +230,10 @@ namespace ArkQ
                         change_act("Move");
                         break;
                     case 1:
-                        change_act("Sit");//
+                        change_act("Sit");
                         break;
                     case 2:
-                        change_act("Sleep");//
+                        change_act("Sleep");
                         break;
                     case 3:
                         change_act("Rela");
@@ -325,32 +327,6 @@ namespace ArkQ
         }
         #endregion
 
-        //换衣服
-        #region 换衣服
-        private void originalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Original.Image = new Bitmap(Properties.Resources.dot);
-            传承.Image = null;
-            skin = "original";
-            if (r1 == (int)direction.Right)
-                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-            else if (r1 == (int)direction.Left)
-                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
-            this.pictureBox1.Image = Image.FromFile(pic_path);
-        }
-
-        private void 传承ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Original.Image = null;
-            传承.Image = new Bitmap(Properties.Resources.dot);
-            skin = "epoque";
-            if (r1 == (int)direction.Right)
-                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
-            else if (r1 == (int)direction.Left)
-                pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
-            this.pictureBox1.Image = Image.FromFile(pic_path);
-        }
-        #endregion
 
         //罚站吗？
         #region 罚站吗？

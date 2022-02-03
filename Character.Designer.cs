@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace ArkQ
 {
-    partial class Pallas
+    partial class Character
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -32,7 +32,7 @@ namespace ArkQ
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pallas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Character));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.显示方式 = new System.Windows.Forms.ToolStripMenuItem();
             this.始终保持最前 = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,9 +45,6 @@ namespace ArkQ
             this.Opacity45 = new System.Windows.Forms.ToolStripMenuItem();
             this.Opacity30 = new System.Windows.Forms.ToolStripMenuItem();
             this.Opacity15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.换装 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Original = new System.Windows.Forms.ToolStripMenuItem();
-            this.传承 = new System.Windows.Forms.ToolStripMenuItem();
             this.Opacity0 = new System.Windows.Forms.ToolStripMenuItem();
             this.罚站吗 = new System.Windows.Forms.ToolStripMenuItem();
             this.罚站 = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,11 +64,10 @@ namespace ArkQ
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.显示方式,
             this.透明度,
-            this.换装,
             this.Opacity0,
             this.罚站吗});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 124);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 128);
             // 
             // 显示方式
             // 
@@ -79,7 +75,7 @@ namespace ArkQ
             this.始终保持最前,
             this.不需要保持最前});
             this.显示方式.Name = "显示方式";
-            this.显示方式.Size = new System.Drawing.Size(138, 24);
+            this.显示方式.Size = new System.Drawing.Size(210, 24);
             this.显示方式.Text = "显示方式";
             // 
             // 始终保持最前
@@ -108,7 +104,7 @@ namespace ArkQ
             this.Opacity30,
             this.Opacity15});
             this.透明度.Name = "透明度";
-            this.透明度.Size = new System.Drawing.Size(138, 24);
+            this.透明度.Size = new System.Drawing.Size(210, 24);
             this.透明度.Text = "透明度";
             // 
             // Opacity100
@@ -161,34 +157,10 @@ namespace ArkQ
             this.Opacity15.Text = "15%";
             this.Opacity15.Click += new System.EventHandler(this.Opacity15_Click);
             // 
-            // 换装
-            // 
-            this.换装.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Original,
-            this.传承});
-            this.换装.Name = "换装";
-            this.换装.Size = new System.Drawing.Size(138, 24);
-            this.换装.Text = "换装";
-            // 
-            // Original
-            // 
-            this.Original.Image = global::ArkQ.Properties.Resources.dot;
-            this.Original.Name = "Original";
-            this.Original.Size = new System.Drawing.Size(149, 26);
-            this.Original.Text = "Original";
-            this.Original.Click += new System.EventHandler(this.originalToolStripMenuItem_Click);
-            // 
-            // 传承
-            // 
-            this.传承.Name = "传承";
-            this.传承.Size = new System.Drawing.Size(149, 26);
-            this.传承.Text = "传承";
-            this.传承.Click += new System.EventHandler(this.传承ToolStripMenuItem_Click);
-            // 
             // Opacity0
             // 
             this.Opacity0.Name = "Opacity0";
-            this.Opacity0.Size = new System.Drawing.Size(138, 24);
+            this.Opacity0.Size = new System.Drawing.Size(210, 24);
             this.Opacity0.Text = "下班";
             this.Opacity0.Click += new System.EventHandler(this.下班ToolStripMenuItem_Click);
             // 
@@ -198,7 +170,7 @@ namespace ArkQ
             this.罚站,
             this.不要罚站了});
             this.罚站吗.Name = "罚站吗";
-            this.罚站吗.Size = new System.Drawing.Size(138, 24);
+            this.罚站吗.Size = new System.Drawing.Size(210, 24);
             this.罚站吗.Text = "罚站吗？";
             // 
             // 罚站
@@ -247,7 +219,7 @@ namespace ArkQ
             // 
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
-            // Pallas
+            // Character
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,7 +236,7 @@ namespace ArkQ
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Pallas";
+            this.Name = "Character";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -286,7 +258,6 @@ namespace ArkQ
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 显示方式;
         private System.Windows.Forms.ToolStripMenuItem 透明度;
-        private System.Windows.Forms.ToolStripMenuItem 换装;
         private System.Windows.Forms.ToolStripMenuItem Opacity0;
         private System.Windows.Forms.ToolStripMenuItem 罚站吗;
         private System.Windows.Forms.ToolStripMenuItem 始终保持最前;
@@ -298,11 +269,9 @@ namespace ArkQ
         private System.Windows.Forms.ToolStripMenuItem Opacity45;
         private System.Windows.Forms.ToolStripMenuItem Opacity30;
         private System.Windows.Forms.ToolStripMenuItem Opacity15;
-        private System.Windows.Forms.ToolStripMenuItem Original;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.ToolStripMenuItem 传承;
         private System.Windows.Forms.ToolStripMenuItem 不要罚站了;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
