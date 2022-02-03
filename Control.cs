@@ -19,10 +19,10 @@ namespace ArkQ
         public Control()
         {
             InitializeComponent();
-            //int x = SystemInformation.WorkingArea.Width - 200;
-            //int y = SystemInformation.WorkingArea.Height - 100;
-            //this.StartPosition = FormStartPosition.Manual;
-            //this.Location = (Point)new Size(x, y);  
+            int x = SystemInformation.WorkingArea.Width - 200;
+            int y = SystemInformation.WorkingArea.Height - 100;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = (Point)new Size(x, y);
         }
 
         //鼠标拖动
@@ -70,14 +70,14 @@ namespace ArkQ
             this.Opacity = 0;
         }
 
-        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 退出_Click(object sender, EventArgs e)
         {
             config.saveInfos(this.Location.X, this.Location.Y, (int)(this.Opacity * 100), this.TopMost);
             notifyIcon1.Dispose();
             Application.Exit();
         }
 
-        private void 显示_Click_1(object sender, EventArgs e)
+        private void 显示_Click(object sender, EventArgs e)
         {
             this.Opacity = 100;
         }
@@ -92,35 +92,53 @@ namespace ArkQ
 
         //创建角色菜单
         #region 创建角色菜单
-        private void originalToolStripMenuItem_Click(object sender, EventArgs e)
+        private void original_Click(object sender, EventArgs e)
         {
-            Character pallas_original = new Character("Pallas", "original",6000,0);
+            Character pallas_original = new Character("Pallas", "original", 7000,  0);
             pallas_original.Show();
         }
-        #endregion
 
-        private void 传承ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 传承_Click(object sender, EventArgs e)
         {
             Character pallas_epoque = new Character("Pallas", "epoque", 3000, 20000);
             pallas_epoque.Show();
         }
 
-        private void originalToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void original2_Click(object sender, EventArgs e)
         {
-            Character courier_original = new Character("Courier", "original", 3000, 0);
+            Character courier_original = new Character("Courier", "original", 4000, 0);
             courier_original.Show();
         }
 
-        private void 新航线ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 新航线_Click(object sender, EventArgs e)
         {
-            Character courier_winter = new Character("Courier", "winter", 3000, 18000);
+            Character courier_winter = new Character("Courier", "winter", 3000, 0);
             courier_winter.Show();
         }
 
-        private void 无言狂想ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 无言狂响_Click(object sender, EventArgs e)
         {
             Character courier_as = new Character("Courier", "as", 3000, 18000);
             courier_as.Show();
         }
+
+        private void original3_Click(object sender, EventArgs e)
+        {
+            Character silverash_original = new Character("SilverAsh", "original", 4000, 0);
+            silverash_original.Show();
+        }
+
+        private void 约克的寒风_Click(object sender, EventArgs e)
+        {
+            Character silverash_snow = new Character("SilverAsh", "snow", 4000, 27000);
+            silverash_snow.Show();
+        }
+
+        private void 探寻者SKm01_Click(object sender, EventArgs e)
+        {
+            Character silverash_summer = new Character("SilverAsh", "summer", 3000, 14000);
+            silverash_summer.Show();
+        }
+        #endregion
     }
 }

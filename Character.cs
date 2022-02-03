@@ -28,8 +28,8 @@ namespace ArkQ
         private int screen_height;
         private int r1;//控制左右
         private int r2;//控制上下
-        private int v1;//控制左右速度(1~2pixel)
-        private int v2;//控制上下速度(1~2pixel)
+        private int v1;//控制左右速度(1~3pixel)
+        private int v2;//控制上下速度(1~3pixel)
         private int margin = 200;//Move边框宽度
 
         public Character(string c_name,string c_skin,int c_interact_time,int c_special_time)
@@ -78,7 +78,7 @@ namespace ArkQ
                 timer1.Interval = interact_time;
                 timer1.Start();
             }
-            else if(new_act == "Special")   //下一动作是 特殊动作
+            else if(new_act == "Special" && special_time!=0)   //下一动作是 特殊动作
             {
                 timer3.Interval = special_time;
                 timer2.Stop();
@@ -239,7 +239,7 @@ namespace ArkQ
                         change_act("Rela");
                         break;
                     case 4:
-                        if (skin != "original")
+                        if (special_time!=0)
                             change_act("Special");
                         else change_act("Move"); //多走走！！！不准养老！！！
                         break;
@@ -256,6 +256,59 @@ namespace ArkQ
 
         private void timer4_Tick(object sender, EventArgs e)
         {
+            int move_x, move_y;
+            if (r1 == (int)direction.Left)
+            {
+                if (this.Location.X <= margin)
+                {
+                    r1 = (int)direction.Right;
+                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + ".gif";
+                    this.pictureBox1.Image = Image.FromFile(pic_path);
+                    v1 = rand.Next() % 3 + 1;
+                    v2 = rand.Next() % 3 + 1;
+                }
+            }
+            else
+            {
+                if (this.Location.X >= screen_width - margin)
+                {
+                    r1 = (int)direction.Left;
+                    pic_path = BASIC_PATH + character + "\\" + skin + "\\" + act + "R.gif";
+                    this.pictureBox1.Image = Image.FromFile(pic_path);
+                    v1 = rand.Next() % 3 + 1;
+                    v2 = rand.Next() % 3 + 1;
+                }
+            }
+
+            if (r2 == (int)direction.Up)
+            {
+                if (this.Location.Y <= margin)
+                    r2 = (int)direction.Down;
+            }
+            else
+            {
+                if (this.Location.Y >= screen_height - margin)
+                    r2 = (int)direction.Up;
+            }
+            if (r1 == (int)direction.Left)
+            {
+                move_x = this.Location.X - v1;
+            }
+            else
+            {
+                move_x = this.Location.X + v1;
+            }
+            if (r2 == (int)direction.Up)
+            {
+                move_y = this.Location.Y - v2;
+            }
+            else
+            {
+                move_y = this.Location.Y + v2;
+            }
+            this.Location = new Point(move_x, move_y);
+
+            /*
             if(r1==(int)direction.Left && r2== (int)direction.Up)//左上
             {
                 if(this.Location.X <= margin || this.Location.Y <= margin)//换方向
@@ -324,6 +377,7 @@ namespace ArkQ
                     this.Location = new Point(this.Location.X + v1, this.Location.Y + v2);
                 }
             }
+            */
         }
         #endregion
 

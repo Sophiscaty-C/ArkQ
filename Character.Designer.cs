@@ -67,7 +67,7 @@ namespace ArkQ
             this.Opacity0,
             this.罚站吗});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 128);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 100);
             // 
             // 显示方式
             // 
@@ -75,7 +75,7 @@ namespace ArkQ
             this.始终保持最前,
             this.不需要保持最前});
             this.显示方式.Name = "显示方式";
-            this.显示方式.Size = new System.Drawing.Size(210, 24);
+            this.显示方式.Size = new System.Drawing.Size(138, 24);
             this.显示方式.Text = "显示方式";
             // 
             // 始终保持最前
@@ -104,7 +104,7 @@ namespace ArkQ
             this.Opacity30,
             this.Opacity15});
             this.透明度.Name = "透明度";
-            this.透明度.Size = new System.Drawing.Size(210, 24);
+            this.透明度.Size = new System.Drawing.Size(138, 24);
             this.透明度.Text = "透明度";
             // 
             // Opacity100
@@ -160,7 +160,7 @@ namespace ArkQ
             // Opacity0
             // 
             this.Opacity0.Name = "Opacity0";
-            this.Opacity0.Size = new System.Drawing.Size(210, 24);
+            this.Opacity0.Size = new System.Drawing.Size(138, 24);
             this.Opacity0.Text = "下班";
             this.Opacity0.Click += new System.EventHandler(this.下班ToolStripMenuItem_Click);
             // 
@@ -170,7 +170,7 @@ namespace ArkQ
             this.罚站,
             this.不要罚站了});
             this.罚站吗.Name = "罚站吗";
-            this.罚站吗.Size = new System.Drawing.Size(210, 24);
+            this.罚站吗.Size = new System.Drawing.Size(138, 24);
             this.罚站吗.Text = "罚站吗？";
             // 
             // 罚站
@@ -226,7 +226,7 @@ namespace ArkQ
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(300, 300);
+            this.ClientSize = new System.Drawing.Size(397, 300);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);

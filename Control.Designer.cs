@@ -34,18 +34,22 @@ namespace ArkQ
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.增加干员 = new System.Windows.Forms.ToolStripMenuItem();
             this.帕拉斯 = new System.Windows.Forms.ToolStripMenuItem();
-            this.originalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.传承ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.original1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.传承 = new System.Windows.Forms.ToolStripMenuItem();
             this.讯使 = new System.Windows.Forms.ToolStripMenuItem();
+            this.original2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.新航线 = new System.Windows.Forms.ToolStripMenuItem();
+            this.无言狂响 = new System.Windows.Forms.ToolStripMenuItem();
             this.Opacity0 = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Opacity100 = new System.Windows.Forms.ToolStripMenuItem();
             this.退出2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.originalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.新航线ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.无言狂想ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.银灰 = new System.Windows.Forms.ToolStripMenuItem();
+            this.original3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.约克的寒风 = new System.Windows.Forms.ToolStripMenuItem();
+            this.探寻者SKm01 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +68,8 @@ namespace ArkQ
             // 
             this.增加干员.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.帕拉斯,
-            this.讯使});
+            this.讯使,
+            this.银灰});
             this.增加干员.Name = "增加干员";
             this.增加干员.Size = new System.Drawing.Size(210, 24);
             this.增加干员.Text = "增加干员";
@@ -72,35 +77,56 @@ namespace ArkQ
             // 帕拉斯
             // 
             this.帕拉斯.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.originalToolStripMenuItem,
-            this.传承ToolStripMenuItem});
+            this.original1,
+            this.传承});
             this.帕拉斯.Name = "帕拉斯";
             this.帕拉斯.Size = new System.Drawing.Size(224, 26);
             this.帕拉斯.Text = "帕拉斯";
             // 
-            // originalToolStripMenuItem
+            // original1
             // 
-            this.originalToolStripMenuItem.Name = "originalToolStripMenuItem";
-            this.originalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.originalToolStripMenuItem.Text = "Original";
-            this.originalToolStripMenuItem.Click += new System.EventHandler(this.originalToolStripMenuItem_Click);
+            this.original1.Name = "original1";
+            this.original1.Size = new System.Drawing.Size(149, 26);
+            this.original1.Text = "Original";
+            this.original1.Click += new System.EventHandler(this.original_Click);
             // 
-            // 传承ToolStripMenuItem
+            // 传承
             // 
-            this.传承ToolStripMenuItem.Name = "传承ToolStripMenuItem";
-            this.传承ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.传承ToolStripMenuItem.Text = "传承";
-            this.传承ToolStripMenuItem.Click += new System.EventHandler(this.传承ToolStripMenuItem_Click);
+            this.传承.Name = "传承";
+            this.传承.Size = new System.Drawing.Size(149, 26);
+            this.传承.Text = "传承";
+            this.传承.Click += new System.EventHandler(this.传承_Click);
             // 
             // 讯使
             // 
             this.讯使.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.originalToolStripMenuItem1,
-            this.新航线ToolStripMenuItem,
-            this.无言狂想ToolStripMenuItem});
+            this.original2,
+            this.新航线,
+            this.无言狂响});
             this.讯使.Name = "讯使";
             this.讯使.Size = new System.Drawing.Size(224, 26);
             this.讯使.Text = "讯使";
+            // 
+            // original2
+            // 
+            this.original2.Name = "original2";
+            this.original2.Size = new System.Drawing.Size(152, 26);
+            this.original2.Text = "Original";
+            this.original2.Click += new System.EventHandler(this.original2_Click);
+            // 
+            // 新航线
+            // 
+            this.新航线.Name = "新航线";
+            this.新航线.Size = new System.Drawing.Size(152, 26);
+            this.新航线.Text = "新航线";
+            this.新航线.Click += new System.EventHandler(this.新航线_Click);
+            // 
+            // 无言狂响
+            // 
+            this.无言狂响.Name = "无言狂响";
+            this.无言狂响.Size = new System.Drawing.Size(152, 26);
+            this.无言狂响.Text = "无言狂响";
+            this.无言狂响.Click += new System.EventHandler(this.无言狂响_Click);
             // 
             // Opacity0
             // 
@@ -114,7 +140,7 @@ namespace ArkQ
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
             this.退出ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出_Click);
             // 
             // notifyIcon1
             // 
@@ -137,7 +163,7 @@ namespace ArkQ
             this.Opacity100.Name = "Opacity100";
             this.Opacity100.Size = new System.Drawing.Size(108, 24);
             this.Opacity100.Text = "显示";
-            this.Opacity100.Click += new System.EventHandler(this.显示_Click_1);
+            this.Opacity100.Click += new System.EventHandler(this.显示_Click);
             // 
             // 退出2
             // 
@@ -146,26 +172,36 @@ namespace ArkQ
             this.退出2.Text = "退出";
             this.退出2.Click += new System.EventHandler(this.退出2_Click);
             // 
-            // originalToolStripMenuItem1
+            // 银灰
             // 
-            this.originalToolStripMenuItem1.Name = "originalToolStripMenuItem1";
-            this.originalToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.originalToolStripMenuItem1.Text = "Original";
-            this.originalToolStripMenuItem1.Click += new System.EventHandler(this.originalToolStripMenuItem1_Click);
+            this.银灰.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.original3,
+            this.约克的寒风,
+            this.探寻者SKm01});
+            this.银灰.Name = "银灰";
+            this.银灰.Size = new System.Drawing.Size(224, 26);
+            this.银灰.Text = "银灰";
             // 
-            // 新航线ToolStripMenuItem
+            // original3
             // 
-            this.新航线ToolStripMenuItem.Name = "新航线ToolStripMenuItem";
-            this.新航线ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.新航线ToolStripMenuItem.Text = "新航线";
-            this.新航线ToolStripMenuItem.Click += new System.EventHandler(this.新航线ToolStripMenuItem_Click);
+            this.original3.Name = "original3";
+            this.original3.Size = new System.Drawing.Size(224, 26);
+            this.original3.Text = "Original";
+            this.original3.Click += new System.EventHandler(this.original3_Click);
             // 
-            // 无言狂想ToolStripMenuItem
+            // 约克的寒风
             // 
-            this.无言狂想ToolStripMenuItem.Name = "无言狂想ToolStripMenuItem";
-            this.无言狂想ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.无言狂想ToolStripMenuItem.Text = "无言狂想";
-            this.无言狂想ToolStripMenuItem.Click += new System.EventHandler(this.无言狂想ToolStripMenuItem_Click);
+            this.约克的寒风.Name = "约克的寒风";
+            this.约克的寒风.Size = new System.Drawing.Size(224, 26);
+            this.约克的寒风.Text = "约克的寒风";
+            this.约克的寒风.Click += new System.EventHandler(this.约克的寒风_Click);
+            // 
+            // 探寻者SKm01
+            // 
+            this.探寻者SKm01.Name = "探寻者SKm01";
+            this.探寻者SKm01.Size = new System.Drawing.Size(224, 26);
+            this.探寻者SKm01.Text = "探寻者-SKm01";
+            this.探寻者SKm01.Click += new System.EventHandler(this.探寻者SKm01_Click);
             // 
             // Control
             // 
@@ -185,7 +221,6 @@ namespace ArkQ
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control";
-            this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.White;
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Control_MouseDown);
             this.MouseEnter += new System.EventHandler(this.Control_MouseEnter);
@@ -210,10 +245,14 @@ namespace ArkQ
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem Opacity100;
         private System.Windows.Forms.ToolStripMenuItem 退出2;
-        private System.Windows.Forms.ToolStripMenuItem originalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 传承ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem originalToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 新航线ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 无言狂想ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem original1;
+        private System.Windows.Forms.ToolStripMenuItem 传承;
+        private System.Windows.Forms.ToolStripMenuItem original2;
+        private System.Windows.Forms.ToolStripMenuItem 新航线;
+        private System.Windows.Forms.ToolStripMenuItem 无言狂响;
+        private System.Windows.Forms.ToolStripMenuItem 银灰;
+        private System.Windows.Forms.ToolStripMenuItem original3;
+        private System.Windows.Forms.ToolStripMenuItem 约克的寒风;
+        private System.Windows.Forms.ToolStripMenuItem 探寻者SKm01;
     }
 }

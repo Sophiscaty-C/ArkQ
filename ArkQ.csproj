@@ -53,12 +53,6 @@
     <Compile Include="Control.Designer.cs">
       <DependentUpon>Control.cs</DependentUpon>
     </Compile>
-    <Compile Include="Courier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Courier.Designer.cs">
-      <DependentUpon>Courier.cs</DependentUpon>
-    </Compile>
     <Compile Include="Character.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,9 +63,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Control.resx">
       <DependentUpon>Control.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Courier.resx">
-      <DependentUpon>Courier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Character.resx">
       <DependentUpon>Character.cs</DependentUpon>
