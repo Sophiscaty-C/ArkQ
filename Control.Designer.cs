@@ -40,16 +40,16 @@ namespace ArkQ
             this.original2 = new System.Windows.Forms.ToolStripMenuItem();
             this.新航线 = new System.Windows.Forms.ToolStripMenuItem();
             this.无言狂响 = new System.Windows.Forms.ToolStripMenuItem();
+            this.银灰 = new System.Windows.Forms.ToolStripMenuItem();
+            this.original3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.约克的寒风 = new System.Windows.Forms.ToolStripMenuItem();
+            this.探寻者SKm01 = new System.Windows.Forms.ToolStripMenuItem();
             this.Opacity0 = new System.Windows.Forms.ToolStripMenuItem();
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Opacity100 = new System.Windows.Forms.ToolStripMenuItem();
             this.退出2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.银灰 = new System.Windows.Forms.ToolStripMenuItem();
-            this.original3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.约克的寒风 = new System.Windows.Forms.ToolStripMenuItem();
-            this.探寻者SKm01 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +62,7 @@ namespace ArkQ
             this.Opacity0,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 76);
             // 
             // 增加干员
             // 
@@ -71,7 +71,7 @@ namespace ArkQ
             this.讯使,
             this.银灰});
             this.增加干员.Name = "增加干员";
-            this.增加干员.Size = new System.Drawing.Size(210, 24);
+            this.增加干员.Size = new System.Drawing.Size(138, 24);
             this.增加干员.Text = "增加干员";
             // 
             // 帕拉斯
@@ -80,7 +80,7 @@ namespace ArkQ
             this.original1,
             this.传承});
             this.帕拉斯.Name = "帕拉斯";
-            this.帕拉斯.Size = new System.Drawing.Size(224, 26);
+            this.帕拉斯.Size = new System.Drawing.Size(137, 26);
             this.帕拉斯.Text = "帕拉斯";
             // 
             // original1
@@ -104,7 +104,7 @@ namespace ArkQ
             this.新航线,
             this.无言狂响});
             this.讯使.Name = "讯使";
-            this.讯使.Size = new System.Drawing.Size(224, 26);
+            this.讯使.Size = new System.Drawing.Size(137, 26);
             this.讯使.Text = "讯使";
             // 
             // original2
@@ -128,17 +128,48 @@ namespace ArkQ
             this.无言狂响.Text = "无言狂响";
             this.无言狂响.Click += new System.EventHandler(this.无言狂响_Click);
             // 
+            // 银灰
+            // 
+            this.银灰.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.original3,
+            this.约克的寒风,
+            this.探寻者SKm01});
+            this.银灰.Name = "银灰";
+            this.银灰.Size = new System.Drawing.Size(137, 26);
+            this.银灰.Text = "银灰";
+            // 
+            // original3
+            // 
+            this.original3.Name = "original3";
+            this.original3.Size = new System.Drawing.Size(194, 26);
+            this.original3.Text = "Original";
+            this.original3.Click += new System.EventHandler(this.original3_Click);
+            // 
+            // 约克的寒风
+            // 
+            this.约克的寒风.Name = "约克的寒风";
+            this.约克的寒风.Size = new System.Drawing.Size(194, 26);
+            this.约克的寒风.Text = "约克的寒风";
+            this.约克的寒风.Click += new System.EventHandler(this.约克的寒风_Click);
+            // 
+            // 探寻者SKm01
+            // 
+            this.探寻者SKm01.Name = "探寻者SKm01";
+            this.探寻者SKm01.Size = new System.Drawing.Size(194, 26);
+            this.探寻者SKm01.Text = "探寻者-SKm01";
+            this.探寻者SKm01.Click += new System.EventHandler(this.探寻者SKm01_Click);
+            // 
             // Opacity0
             // 
             this.Opacity0.Name = "Opacity0";
-            this.Opacity0.Size = new System.Drawing.Size(210, 24);
+            this.Opacity0.Size = new System.Drawing.Size(138, 24);
             this.Opacity0.Text = "隐藏";
             this.Opacity0.Click += new System.EventHandler(this.隐藏_Click);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出_Click);
             // 
@@ -171,37 +202,6 @@ namespace ArkQ
             this.退出2.Size = new System.Drawing.Size(108, 24);
             this.退出2.Text = "退出";
             this.退出2.Click += new System.EventHandler(this.退出2_Click);
-            // 
-            // 银灰
-            // 
-            this.银灰.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.original3,
-            this.约克的寒风,
-            this.探寻者SKm01});
-            this.银灰.Name = "银灰";
-            this.银灰.Size = new System.Drawing.Size(224, 26);
-            this.银灰.Text = "银灰";
-            // 
-            // original3
-            // 
-            this.original3.Name = "original3";
-            this.original3.Size = new System.Drawing.Size(224, 26);
-            this.original3.Text = "Original";
-            this.original3.Click += new System.EventHandler(this.original3_Click);
-            // 
-            // 约克的寒风
-            // 
-            this.约克的寒风.Name = "约克的寒风";
-            this.约克的寒风.Size = new System.Drawing.Size(224, 26);
-            this.约克的寒风.Text = "约克的寒风";
-            this.约克的寒风.Click += new System.EventHandler(this.约克的寒风_Click);
-            // 
-            // 探寻者SKm01
-            // 
-            this.探寻者SKm01.Name = "探寻者SKm01";
-            this.探寻者SKm01.Size = new System.Drawing.Size(224, 26);
-            this.探寻者SKm01.Text = "探寻者-SKm01";
-            this.探寻者SKm01.Click += new System.EventHandler(this.探寻者SKm01_Click);
             // 
             // Control
             // 
