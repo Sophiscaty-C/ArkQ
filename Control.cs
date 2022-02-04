@@ -23,6 +23,7 @@ namespace ArkQ
             int y = SystemInformation.WorkingArea.Height - 100;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = (Point)new Size(x, y);
+            this.TopMost = true;
         }
 
         //鼠标拖动
@@ -94,19 +95,19 @@ namespace ArkQ
         #region 创建角色菜单
         private void original_Click(object sender, EventArgs e)
         {
-            Character pallas_original = new Character("Pallas", "original", 7000,  0);
+            Character pallas_original = new Character("Pallas", "original", 6000,  0);
             pallas_original.Show();
         }
 
         private void 传承_Click(object sender, EventArgs e)
         {
-            Character pallas_epoque = new Character("Pallas", "epoque", 3000, 20000);
+            Character pallas_epoque = new Character("Pallas", "epoque", 3000, 21000);
             pallas_epoque.Show();
         }
 
         private void original2_Click(object sender, EventArgs e)
         {
-            Character courier_original = new Character("Courier", "original", 4000, 0);
+            Character courier_original = new Character("Courier", "original", 3000, 0);
             courier_original.Show();
         }
 
@@ -124,13 +125,13 @@ namespace ArkQ
 
         private void original3_Click(object sender, EventArgs e)
         {
-            Character silverash_original = new Character("SilverAsh", "original", 4000, 0);
+            Character silverash_original = new Character("SilverAsh", "original", 3000, 0);
             silverash_original.Show();
         }
 
         private void 约克的寒风_Click(object sender, EventArgs e)
         {
-            Character silverash_snow = new Character("SilverAsh", "snow", 4000, 27000);
+            Character silverash_snow = new Character("SilverAsh", "snow", 3000, 29000);
             silverash_snow.Show();
         }
 
