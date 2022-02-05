@@ -381,7 +381,6 @@ namespace ArkQ
         }
         #endregion
 
-
         //罚站吗？
         #region 罚站吗？
         private void 不要罚站了ToolStripMenuItem_Click(object sender, EventArgs e)

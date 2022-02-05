@@ -23,7 +23,6 @@ namespace ArkQ
             int y = SystemInformation.WorkingArea.Height - 100;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = (Point)new Size(x, y);
-            this.TopMost = true;
         }
 
         //鼠标拖动
@@ -93,6 +92,7 @@ namespace ArkQ
 
         //创建角色菜单
         #region 创建角色菜单
+        //帕拉斯
         private void original_Click(object sender, EventArgs e)
         {
             Character pallas_original = new Character("Pallas", "original", 6000,  0);
@@ -104,7 +104,7 @@ namespace ArkQ
             Character pallas_epoque = new Character("Pallas", "epoque", 3000, 21000);
             pallas_epoque.Show();
         }
-
+        //讯使
         private void original2_Click(object sender, EventArgs e)
         {
             Character courier_original = new Character("Courier", "original", 3000, 0);
@@ -122,7 +122,7 @@ namespace ArkQ
             Character courier_as = new Character("Courier", "as", 3000, 18000);
             courier_as.Show();
         }
-
+        //银灰
         private void original3_Click(object sender, EventArgs e)
         {
             Character silverash_original = new Character("SilverAsh", "original", 3000, 0);
@@ -139,6 +139,108 @@ namespace ArkQ
         {
             Character silverash_summer = new Character("SilverAsh", "summer", 3000, 14000);
             silverash_summer.Show();
+        }
+        //阿
+        private void original4_Click(object sender, EventArgs e)
+        {
+            Character aak_original = new Character("Aak", "original", 3000, 0);
+            aak_original.Show();
+        }
+
+        private void 百面郎中_Click(object sender, EventArgs e)
+        {
+            Character aak_nian4 = new Character("Aak", "nian4", 3000, 18000);
+            aak_nian4.Show();
+        }
+
+        private void 妙手玄心_Click(object sender, EventArgs e)
+        {
+            Character aak_nian5 = new Character("Aak", "nian5", 3000, 18000);
+            aak_nian5.Show();
+        }
+        //能天使
+        private void original5_Click(object sender, EventArgs e)
+        {
+            Character exusiai_original = new Character("Exusiai", "original", 3000, 0);
+            exusiai_original.Show();
+        }
+
+        private void 野地秘行_Click(object sender, EventArgs e)
+        {
+            Character exusiai_wild = new Character("Exusiai", "wild", 3000, 18000);
+            exusiai_wild.Show();
+        }
+
+        private void 城市骑手_Click(object sender, EventArgs e)
+        {
+            Character exusiai_kfc = new Character("Exusiai", "kfc", 3000, 18000);
+            exusiai_kfc.Show();
+        }
+        //赫拉格
+        private void original6_Click(object sender, EventArgs e)
+        {
+            Character hellagur_original = new Character("Hellagur", "original", 3000, 0);
+            hellagur_original.Show();
+        }
+
+        private void 歧路幻影_Click(object sender, EventArgs e)
+        {
+            Character hellagur_boc = new Character("Hellagur", "boc", 3000, 18000);
+            hellagur_boc.Show();
+        }
+        //吽
+        private void original7_Click(object sender, EventArgs e)
+        {
+            Character hung_original = new Character("Hung", "original", 3000, 0);
+            hung_original.Show();
+        }
+
+        private void 一介车夫_Click(object sender, EventArgs e)
+        {
+            Character hung_nian4 = new Character("Hung", "nian4", 3000, 18000);
+            hung_nian4.Show();
+        }
+        //老鲤
+        private void original8_Click(object sender, EventArgs e)
+        {
+            Character lee_original = new Character("Lee", "original", 3000, 0);
+            lee_original.Show();
+        }
+        //水月
+        private void original9_Click(object sender, EventArgs e)
+        {
+            Character muziki_original = new Character("Mizuki", "original", 3000, 0);
+            muziki_original.Show();
+        }
+        //临光
+        private void original10_Click(object sender, EventArgs e)
+        {
+            Character nearl_original = new Character("Nearl", "original", 3000, 0);
+            nearl_original.Show();
+        }
+
+        private void 耀骑士_Click(object sender, EventArgs e)
+        {
+            Character nearl_knight = new Character("Nearl", "knight", 3000, 18000);
+            nearl_knight.Show();
+        }
+        //嵯峨
+        private void original11_Click(object sender, EventArgs e)
+        {
+            Character saga_original = new Character("Saga", "original", 3000, 0);
+            saga_original.Show();
+        }
+        //W
+        private void original12_Click(object sender, EventArgs e)
+        {
+            Character w_original = new Character("W", "original", 3000, 0);
+            w_original.Show();
+        }
+
+        private void 恍惚_Click(object sender, EventArgs e)
+        {
+            Character w_epoque = new Character("W", "epoque", 3000, 18000);
+            w_epoque.Show();
         }
         #endregion
     }
