@@ -222,7 +222,7 @@ namespace ArkQ
         #region 动作切换
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if(act != "Interact" && act != "Special")  //避免打断戳一戳和特殊动作
+            if(act != "Interact")  //避免打断戳一戳和特殊动作
             {
                 switch (rand.Next() % 5) //五种动作转换
                 {
@@ -239,7 +239,10 @@ namespace ArkQ
                         change_act("Rela");
                         break;
                     case 4:
-                        change_act("Move"); //多走走！！！不准养老！！！
+                        if(special_time!=0)
+                            change_act("Special");
+                        else
+                            change_act("Move");
                         break;
                 }
             }

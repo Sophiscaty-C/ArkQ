@@ -101,7 +101,7 @@ namespace ArkQ
 
         private void 传承_Click(object sender, EventArgs e)
         {
-            Character pallas_epoque = new Character("Pallas", "epoque", 3000, 21000);
+            Character pallas_epoque = new Character("Pallas", "epoque", 3000, 21100);
             pallas_epoque.Show();
         }
         //讯使
@@ -119,7 +119,7 @@ namespace ArkQ
 
         private void 无言狂响_Click(object sender, EventArgs e)
         {
-            Character courier_as = new Character("Courier", "as", 3000, 18000);
+            Character courier_as = new Character("Courier", "as", 3000, 22000);
             courier_as.Show();
         }
         //银灰
@@ -131,13 +131,13 @@ namespace ArkQ
 
         private void 约克的寒风_Click(object sender, EventArgs e)
         {
-            Character silverash_snow = new Character("SilverAsh", "snow", 3000, 29000);
+            Character silverash_snow = new Character("SilverAsh", "snow", 3000, 35000);
             silverash_snow.Show();
         }
 
         private void 探寻者SKm01_Click(object sender, EventArgs e)
         {
-            Character silverash_summer = new Character("SilverAsh", "summer", 3000, 14000);
+            Character silverash_summer = new Character("SilverAsh", "summer", 3000, 18000);
             silverash_summer.Show();
         }
         //阿
@@ -149,13 +149,13 @@ namespace ArkQ
 
         private void 百面郎中_Click(object sender, EventArgs e)
         {
-            Character aak_nian4 = new Character("Aak", "nian4", 3000, 35000);
+            Character aak_nian4 = new Character("Aak", "nian4", 3000, 50000);
             aak_nian4.Show();
         }
 
         private void 妙手玄心_Click(object sender, EventArgs e)
         {
-            Character aak_nian5 = new Character("Aak", "nian5", 6000, 35000);
+            Character aak_nian5 = new Character("Aak", "nian5", 6000, 47000);
             aak_nian5.Show();
         }
         //能天使
@@ -167,13 +167,13 @@ namespace ArkQ
 
         private void 野地秘行_Click(object sender, EventArgs e)
         {
-            Character exusiai_wild = new Character("Exusiai", "wild", 3000, 22000);
+            Character exusiai_wild = new Character("Exusiai", "wild", 3000, 24100);
             exusiai_wild.Show();
         }
 
         private void 城市骑手_Click(object sender, EventArgs e)
         {
-            Character exusiai_kfc = new Character("Exusiai", "kfc", 3000, 25000);
+            Character exusiai_kfc = new Character("Exusiai", "kfc", 3000, 32000);
             exusiai_kfc.Show();
         }
         //赫拉格
@@ -185,7 +185,7 @@ namespace ArkQ
 
         private void 歧路幻影_Click(object sender, EventArgs e)
         {
-            Character hellagur_boc = new Character("Hellagur", "boc", 6000, 18000);
+            Character hellagur_boc = new Character("Hellagur", "boc", 6000, 26000);
             hellagur_boc.Show();
         }
         //吽
@@ -197,7 +197,7 @@ namespace ArkQ
 
         private void 一介车夫_Click(object sender, EventArgs e)
         {
-            Character hung_nian4 = new Character("Hung", "nian4", 3000, 16000);
+            Character hung_nian4 = new Character("Hung", "nian4", 3000, 18000);
             hung_nian4.Show();
         }
         //老鲤
