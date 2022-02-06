@@ -155,7 +155,7 @@ namespace ArkQ
 
         private void 妙手玄心_Click(object sender, EventArgs e)
         {
-            Character aak_nian5 = new Character("Aak", "nian5", 3000, 18000);
+            Character aak_nian5 = new Character("Aak", "nian5", 6000, 18000);
             aak_nian5.Show();
         }
         //能天使
@@ -203,13 +203,13 @@ namespace ArkQ
         //老鲤
         private void original8_Click(object sender, EventArgs e)
         {
-            Character lee_original = new Character("Lee", "original", 3000, 0);
+            Character lee_original = new Character("Lee", "original", 3100, 0);
             lee_original.Show();
         }
         //水月
         private void original9_Click(object sender, EventArgs e)
         {
-            Character muziki_original = new Character("Mizuki", "original", 3000, 0);
+            Character muziki_original = new Character("Mizuki", "original", 6000, 0);
             muziki_original.Show();
         }
         //临光
