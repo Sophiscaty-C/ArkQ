@@ -239,7 +239,7 @@ namespace ArkQ
 
         private void 恍惚_Click(object sender, EventArgs e)
         {
-            Character w_epoque = new Character("W", "epoque", 3000, 18000);
+            Character w_epoque = new Character("W", "epoque", 3000, 0);
             w_epoque.Show();
         }
         #endregion
