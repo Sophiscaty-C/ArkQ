@@ -239,9 +239,7 @@ namespace ArkQ
                         change_act("Rela");
                         break;
                     case 4:
-                        if (special_time != 0)
-                            change_act("Special");
-                        else change_act("Move"); //多走走！！！不准养老！！！
+                        change_act("Move"); //多走走！！！不准养老！！！
                         break;
                 }
             }

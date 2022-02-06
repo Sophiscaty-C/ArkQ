@@ -149,13 +149,13 @@ namespace ArkQ
 
         private void 百面郎中_Click(object sender, EventArgs e)
         {
-            Character aak_nian4 = new Character("Aak", "nian4", 3000, 18000);
+            Character aak_nian4 = new Character("Aak", "nian4", 3000, 30000);
             aak_nian4.Show();
         }
 
         private void 妙手玄心_Click(object sender, EventArgs e)
         {
-            Character aak_nian5 = new Character("Aak", "nian5", 3000, 18000);
+            Character aak_nian5 = new Character("Aak", "nian5", 6000, 18000);
             aak_nian5.Show();
         }
         //能天使
@@ -185,13 +185,13 @@ namespace ArkQ
 
         private void 歧路幻影_Click(object sender, EventArgs e)
         {
-            Character hellagur_boc = new Character("Hellagur", "boc", 3000, 18000);
+            Character hellagur_boc = new Character("Hellagur", "boc", 6000, 18000);
             hellagur_boc.Show();
         }
         //吽
         private void original7_Click(object sender, EventArgs e)
         {
-            Character hung_original = new Character("Hung", "original", 3000, 0);
+            Character hung_original = new Character("Hung", "original", 3100, 0);
             hung_original.Show();
         }
 
@@ -203,13 +203,13 @@ namespace ArkQ
         //老鲤
         private void original8_Click(object sender, EventArgs e)
         {
-            Character lee_original = new Character("Lee", "original", 3000, 0);
+            Character lee_original = new Character("Lee", "original", 3100, 0);
             lee_original.Show();
         }
         //水月
         private void original9_Click(object sender, EventArgs e)
         {
-            Character muziki_original = new Character("Mizuki", "original", 3000, 0);
+            Character muziki_original = new Character("Mizuki", "original", 6000, 0);
             muziki_original.Show();
         }
         //临光
@@ -221,7 +221,7 @@ namespace ArkQ
 
         private void 耀骑士_Click(object sender, EventArgs e)
         {
-            Character nearl_knight = new Character("Nearl", "knight", 3000, 18000);
+            Character nearl_knight = new Character("Nearl", "knight", 3100, 0);
             nearl_knight.Show();
         }
         //嵯峨
@@ -233,13 +233,13 @@ namespace ArkQ
         //W
         private void original12_Click(object sender, EventArgs e)
         {
-            Character w_original = new Character("W", "original", 3000, 0);
+            Character w_original = new Character("W", "original", 3100, 0);
             w_original.Show();
         }
 
         private void 恍惚_Click(object sender, EventArgs e)
         {
-            Character w_epoque = new Character("W", "epoque", 3000, 0);
+            Character w_epoque = new Character("W", "epoque", 3000, 18000);
             w_epoque.Show();
         }
         #endregion
