@@ -149,13 +149,13 @@ namespace ArkQ
 
         private void 百面郎中_Click(object sender, EventArgs e)
         {
-            Character aak_nian4 = new Character("Aak", "nian4", 3000, 30000);
+            Character aak_nian4 = new Character("Aak", "nian4", 3000, 35000);
             aak_nian4.Show();
         }
 
         private void 妙手玄心_Click(object sender, EventArgs e)
         {
-            Character aak_nian5 = new Character("Aak", "nian5", 6000, 18000);
+            Character aak_nian5 = new Character("Aak", "nian5", 6000, 35000);
             aak_nian5.Show();
         }
         //能天使
@@ -167,13 +167,13 @@ namespace ArkQ
 
         private void 野地秘行_Click(object sender, EventArgs e)
         {
-            Character exusiai_wild = new Character("Exusiai", "wild", 3000, 18000);
+            Character exusiai_wild = new Character("Exusiai", "wild", 3000, 22000);
             exusiai_wild.Show();
         }
 
         private void 城市骑手_Click(object sender, EventArgs e)
         {
-            Character exusiai_kfc = new Character("Exusiai", "kfc", 3000, 18000);
+            Character exusiai_kfc = new Character("Exusiai", "kfc", 3000, 25000);
             exusiai_kfc.Show();
         }
         //赫拉格
@@ -197,7 +197,7 @@ namespace ArkQ
 
         private void 一介车夫_Click(object sender, EventArgs e)
         {
-            Character hung_nian4 = new Character("Hung", "nian4", 3000, 18000);
+            Character hung_nian4 = new Character("Hung", "nian4", 3000, 16000);
             hung_nian4.Show();
         }
         //老鲤
@@ -239,7 +239,7 @@ namespace ArkQ
 
         private void 恍惚_Click(object sender, EventArgs e)
         {
-            Character w_epoque = new Character("W", "epoque", 3000, 18000);
+            Character w_epoque = new Character("W", "epoque", 3000, 0);
             w_epoque.Show();
         }
         #endregion
